@@ -59,6 +59,7 @@
             send: function(){
                 api.send_mes(this.id, this.content).then(mes => {
                     this.get_sj();
+                    this.content = "";
                 }, mes => {
                     alert(mes.responseJSON.message);
                 })
