@@ -54,9 +54,10 @@
             document.body.addEventListener('focusout', () => {
                 //软键盘收起的事件处理
                 if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPad') > 0) { //键盘收齐页面空白问题
-                    document.body.scrollTop = document.body.scrollHeight;
+                    // document.body.scrollTop = document.body.scrollHeight;
+                    alert("键盘收起");
                 }
-            })
+            })  
             this.content = "";
             this.id = location.search.split("?")[1];
             this.get_sj();
