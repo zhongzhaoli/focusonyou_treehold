@@ -2,6 +2,9 @@ body,html{
     width: 100%;
     height: 100%;
 }
+#app{
+    height: 100%;
+}
 .loading{
     position: relative;
     z-index: 10;
