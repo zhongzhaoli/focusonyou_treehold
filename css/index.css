@@ -66,14 +66,15 @@ body,html{
     position: relative;
     z-index: 3;
     padding: 0 15px;
-    height: calc(100% - 3rem - 1px - 2.5rem - 0.5rem);
-    overflow: auto;
 }
 .content{
     background: rgba(255,255,255,0.6);
     border-radius: 5px;
     padding: 10px;
     margin-top: 15px;
+}
+.content_footer{
+    height: calc(3rem + 15px);
 }
 .content:last-child{
     margin-bottom: calc(15px - 0.5rem);
