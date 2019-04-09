@@ -1,10 +1,10 @@
 const api = {
     get_data: (id) => {
-        let url = "http://localhost:7889/treehold/" + id;
+        let url = "https://api.yuntunwj.com/focusonyou/public/treehold/" + id;
         return ajax(url);
     },
     send_mes: (id, content) => {
-        let url = "http://localhost:7889/tree_send/" + id;
+        let url = "https://api.yuntunwj.com/focusonyou/public/" + id;
         return ajax(url, "POST", {"content": content});
     }
 };
