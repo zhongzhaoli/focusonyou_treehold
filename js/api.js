@@ -1,6 +1,6 @@
 const api = {
     get_data: (id) => {
-        let url = "https://api.yuntunwj.com/focusonyou/treehold/" + id;
+        let url = "https://api.yuntunwj.com/focusonyou/public/treehold/" + id;
         return ajax(url);
     },
     send_mes: (id, content) => {
