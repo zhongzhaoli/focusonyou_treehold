@@ -1,0 +1,81 @@
+body,html{
+    width: 100%;
+    height: 100%;
+}
+.loading{
+    position: relative;
+    z-index: 10;
+}
+.navber{
+    background: #2ebdea;
+    height: 2.5rem;
+    color: white;
+    text-align: center;
+    line-height: 2.5rem;
+    position: relative;
+    z-index: 111;
+}
+.bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+.send_message{
+    height: 3rem;
+    background:white;
+    position: fixed;
+    bottom:0;
+    z-index: 5;
+    padding: .5rem;
+}
+
+.send_message > input{
+    width: 100%;
+    height: 2rem;
+    border-radius: 4px;
+    background:transparent;
+    text-indent: 5px;
+    color: black;
+    outline: none;
+    -webkit-appearance:none;
+}
+.send_message > input::-webkit-input-placeholder{
+    color: rgba(0,0,0,0.6);
+}
+.send_message button{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    min-width: 60px;
+}
+.footer{
+    height: 51px;
+}
+.content_div{
+    position: relative;
+    z-index: 3;
+    padding: 0 15px;
+    height: calc(100% - 3rem - 1px - 2.5rem - 0.5rem);
+    overflow: auto;
+}
+.content{
+    background: rgba(255,255,255,0.6);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+}
+.content:last-child{
+    margin-bottom: calc(15px - 0.5rem);
+}
+.create_time{
+    font-size: 12px;
+    margin-top: 0.5rem;
+}
