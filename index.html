@@ -25,13 +25,13 @@
                     <span>{{ i.content }}</span>
                     <div class="create_time">{{ i.create_time }}</div>
                 </div>
-                <div class="content_footer"></div>
                 <div class="content text-center" v-if="sj.length == 0 && !loading">
                     <span>还没有人任何人留言哦</span>
                 </div>
                 <div class="text-center mt-4" v-if="loading">
                     <img style="width: 50px;" src="./images/loading_2.gif" alt="">
                 </div>
+                <div class="content_footer"></div>
             </div>
             <div class="send_message border-top w-100 d-flex">
                 <input type="text" class="border" v-model="content" placeholder="说说你想说的">
