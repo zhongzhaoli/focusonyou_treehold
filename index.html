@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,32 +15,34 @@
     <script src="./js/api.js"></script>
     <script src="./js/vue.js"></script>
 </head>
+
 <body>
     <div id="app">
         <div class="bg"></div>
         <div class="navber w-100 text-center">
             <span>{{ title }}</span>
         </div>
-            <div class="w-100 content_div">
-                <div class="content" v-for="i in sj">
-                    <span>{{ i.content }}</span>
-                    <div class="create_time">{{ i.create_time }}</div>
-                </div>
-                <div class="content text-center" v-if="sj.length == 0 && !loading">
-                    <span>还没有人任何人留言哦</span>
-                </div>
-                <div class="text-center mt-4" v-if="loading">
-                    <img style="width: 50px;" src="./images/loading_2.gif" alt="">
-                </div>
-                <div class="content_footer"></div>
+        <div class="w-100 content_div">
+            <div class="content" v-for="i in sj">
+                <span>{{ i.content }}</span>
+                <div class="create_time">{{ i.create_time }}</div>
             </div>
-            <div class="send_message border-top w-100 d-flex">
-                <input type="text" class="border" v-model="content" placeholder="说说你想说的">
-                <button class="btn btn-primary ml-2" v-on:click="send">发送</button>
+            <div class="content text-center" v-if="sj.length == 0 && !loading">
+                <span>还没有人任何人留言哦</span>
             </div>
+            <div class="text-center mt-4" v-if="loading">
+                <img style="width: 50px;" src="./images/loading_2.gif" alt="">
+            </div>
+            <div class="content_footer"></div>
+        </div>
+        <div class="send_message border-top w-100 d-flex">
+            <input type="text" class="border" v-model="content" placeholder="说说你想说的">
+            <button class="btn btn-primary ml-2" v-on:click="send">发送</button>
         </div>
     </div>
+    </div>
 </body>
+
 </html>
 <script>
     var app = new Vue({
@@ -52,12 +55,21 @@
             title: "",
         },
         created() {
+            document.addEventListener(
+                "blur",
+                e => {
+                    // 这里加了个类型判断，因为a等元素也会触发blur事件
+                    ["input", "textarea"].includes(e.target.localName) &&
+                        document.body.scrollIntoView(false);
+                },
+                true
+            );
             this.content = "";
             this.id = location.search.split("?")[1];
             this.get_sj();
         },
         methods: {
-            send: function(){
+            send: function () {
                 api.send_mes(this.id, this.content).then(mes => {
                     this.get_sj();
                     this.content = "";
@@ -65,7 +77,7 @@
                     alert(mes.responseJSON.message);
                 })
             },
-            get_sj(){
+            get_sj() {
                 this.loading = true;
                 api.get_data(this.id).then(mes => {
                     this.sj = mes.sj;
@@ -75,4 +87,4 @@
             }
         }
     });
-    </script>
+</script>
